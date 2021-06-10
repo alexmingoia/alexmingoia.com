@@ -1,0 +1,94 @@
+:root {
+	--font-family-sans-serif: ui-sans-serif, -apple-system, sans-serif;
+	--font-family-serif: ui-serif, serif;
+	--font-family: var(--font-family-sans-serif);
+
+	--color-background: hsl(0, 0, 0%);
+
+	--color-text-body: hsl(0, 0%, 20%);
+	--color-text-heading: hsl(0, 0%, 0%);
+	--color-text-light: hsl(0, 0%, 50%);
+
+	--color-tomato: #ff6348;
+	--color-link: var(--color-tomato);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	:root {
+		--color-background: hsl(213, 16%, 4%);
+
+		--color-text-body: hsl(0, 0%, 80%);
+		--color-text-heading: hsl(0, 0%, 100%);
+		--color-text-light: hsl(0, 0%, 50%);
+	}
+}
+
+html, body {
+	background-color: var(--color-background);
+	color: var(--color-text-body);
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+h1, h2, h3, h4, h5 {
+	color: var(--color-text-heading);
+}
+
+h1 {
+	margin: 2rem 0 1rem 0;
+	line-height: 1.25;
+	font-size: 4.5rem;
+	font-weight: 800;
+}
+
+h1 + p {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+p {
+	margin: 1rem 0;
+}
+
+a {
+	color: inherit;
+}
+
+@media screen and (hover: hover) {
+	a {
+		transition: .25s color ease;
+	}
+
+	a:hover {
+		color: var(--color-link);
+	}
+}
+
+@media screen and (max-width: 600px) {
+	main {
+		padding: 0 1rem;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	h1 + p {
+		font-size: 1.25rem;
+	}
+}
+
+.ingress {
+	margin: 0;
+	padding: 6rem 0;
+}
