@@ -17,13 +17,30 @@ body {
 main {
 	margin: 0 auto;
 	padding: 4rem 3rem;
-	max-width: 960px;
+	max-width: 1120px;
 	text-align: left;
+	display: flex;
 	position: relative;
+}
+
+main > div:first-child {
+	flex: 1 1 auto;
+}
+
+main > div:last-child {
+	flex: 0 0 300px;
+	padding-left: 4rem;
+}
+
+@media screen and (max-width: 960px) {
+	main {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 760px) {
 	main {
+		display: block;
 		padding: 2rem 1.5rem;
 	}
 }
