@@ -7,6 +7,6 @@
 	display: inline-flex;
 	vertical-align: middle;
 	fill: currentColor;
-	height: 1em;
-	width: auto;
+	height: auto;
+	width: 1em;
 }
