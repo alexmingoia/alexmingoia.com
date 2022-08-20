@@ -3,13 +3,8 @@
 ## 🙂 🙏 Hello.
 
 - I made [sumi.news](https://sumi.news), a simple news aggregator.
-- I'm available for fractional CTO services and software consulting. Don't hesitate to [email me](mailto:alex@alexmingoia.com) so I can help you deliver successful software.
-
-## Contact
-
-- Email me at [alex@alexmingoia.com](mailto:alex@alexmingoia.com)
-- Message me securely using [Signal](https://signal.org) at [+1 707 329 0400](tel:+17073290400)
-- Follow me on Twitter [@alexmingoia](https://twitter.com/alexmingoia)
+- I'm available for fractional CTO services and software consulting. Don't hesitate to email me so I can help you deliver successful software.
+- Email me [alex@alexmingoia.com](mailto:alex@alexmingoia.com), or using [Signal](https://signal.org/) [+1 707 329 0400](tel:+17073290400)
 
 ## About
 
