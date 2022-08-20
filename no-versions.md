@@ -1,6 +1,7 @@
 ---
 date: 2022-08-20
 title: Better software without versions
+permalink: no-versions
 ---
 
 # Better software without versions
