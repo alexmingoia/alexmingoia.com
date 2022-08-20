@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Alex Mingoia</title>
+	<link href="https://alexmingoia.com/rss.xml" rel="self" />
+	<link href="https://alexmingoia.com/" />
+	<id>https://alexmingoia.com/rss.xml</id>
+<updated>2022-08-20T05:56:47Z</updated>
+<entry>
+	<id>https://alexmingoia.com/no-versions</id>
+	<title>Better software without versions</title>
+	<published>2022-08-20</published>
+	<updated>2022-08-20</updated>
+	<content type="html">&lt;h1 id=&quot;better-software-without-versions&quot;&gt;Better software without versions&lt;/h1&gt;
+&lt;p&gt;Versions are a lie. Code &lt;em&gt;is&lt;/em&gt; the interface (API). Versions aren&amp;#39;t code – they do not necessarily reflect changes to the interface.&lt;/p&gt;
+&lt;p&gt;There are two kinds of changes to an interface: Breaking and non-breaking. If we want to make changes that break the interface, we bump the version, right? &lt;strong&gt;No&lt;/strong&gt;. We shouldn&amp;#39;t break the interface. We should add to the interface. Add an additional argument, add a function, add a namespace. Add to the interface.&lt;/p&gt;
+&lt;p&gt;So you see, versions aren&amp;#39;t only lies – versions are unnecessary lies. Versions aren&amp;#39;t a promise, they are an excuse to break things. Forget versions. Ship better software by not breaking stuff.&lt;/p&gt;
+</content>
+</entry>
+	</feed>
+</xml>
