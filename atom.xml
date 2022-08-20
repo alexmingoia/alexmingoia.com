@@ -5,13 +5,14 @@
 	<link href="https://alexmingoia.com/rss.xml" rel="self" />
 	<link href="https://alexmingoia.com/" />
 	<id>https://alexmingoia.com/rss.xml</id>
-<updated>2022-08-20T09:46:59Z</updated>
+<updated>2022-08-20T09:55:27Z</updated>
 <entry>
 	<id>https://alexmingoia.com/no-versions</id>
 	<title>Better software without versions</title>
 	<published>2022-08-20</published>
 	<updated>2022-08-20</updated>
 	<content type="html">&lt;h1 id=&quot;better-software-without-versions&quot;&gt;Better software without versions&lt;/h1&gt;
+&lt;p&gt;If we don&amp;#39;t break things, we don&amp;#39;t need versions.&lt;/p&gt;
 &lt;p&gt;Versions are supposed to communicate change. We want to use new code, fix bugs, and improve things. We care about changes, so why care about versions? Why not always upgrade? Because versions are used to communicate two kinds of changes: breaking and non-breaking. If we want to make breaking changes, we use versions to communicate this.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;But we don&amp;#39;t have to make breaking changes.&lt;/em&gt; Versions are an excuse to break things. We shouldn&amp;#39;t break things. Instead, we can add an additional argument, add a function, or add a namespace. Add to the interface. Forget versions. Ship better software by not breaking stuff.&lt;/p&gt;
 </content>
