@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["publish/**/*.html"],
+  content: ["*.mustache"],
   theme: {
     extend: {},
   },

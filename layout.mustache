@@ -2,11 +2,24 @@
 <html>
 <html lang="en">
 	<head>
-		<title>Alex Mingoia</title>
+		{{#title}}
+			<title>{{title}} &mdash; Alex Mingoia</title>
+		{{/title}}
+		{{^title}}
+			<title>Alex Mingoia</title>
+		{{/title}}
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" type="text/css" href="/main.min.css" />
 	</head>
 	<body class="px-4 py-8 md:px-16 md:py-16 md:container md:mx-auto prose prose-zinc dark:prose-invert prose-li:my-1 prose-h2:text-xl">
-		{{&output}}
+		{{#date}}
+			<article class="h-entry" itemscope itemtype="http://schema.org/Article">
+				{{&output}}
+				<footer class="text-right border-t border-zinc-100 dark:border-zinc-800 pt-4 text-zinc-500"><a class="p-author" rel="author" href="https://alexmingoia.com">Alex Mingoia</a> &bull; <time datetime="{{date}}" itemprop="datePublished">{{date}}</time></footer>
+			</article>
+		{{/date}}
+		{{^date}}
+			{{&output}}
+		{{/date}}
 	</body>
 </html>
