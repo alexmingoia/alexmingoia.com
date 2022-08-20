@@ -6,8 +6,6 @@ permalink: no-versions
 
 # Better software without versions
 
-Versions are a lie. Code *is* the interface (API). Versions aren't code – they do not necessarily reflect changes to the interface.
+Versions are supposed to communicate change. We want to use new code, fix bugs, and improve things. We care about changes, so why care about versions? Why not always upgrade? Because versions are used to communicate two kinds of changes: breaking and non-breaking. If we want to make breaking changes, we use versions to communicate this.
 
-There are two kinds of changes to an interface: Breaking and non-breaking. If we want to make changes that break the interface, we bump the version, right? **No**. We shouldn't break the interface. We should add to the interface. Add an additional argument, add a function, add a namespace. Add to the interface.
-
-So you see, versions aren't only lies – versions are unnecessary lies. Versions aren't a promise, they are an excuse to break things. Forget versions. Ship better software by not breaking stuff.
+*But we don't have to make breaking changes.* Versions are an excuse to break things. We shouldn't break things. Instead, we can add an additional argument, add a function, or add a namespace. Add to the interface. Forget versions. Ship better software by not breaking stuff.
