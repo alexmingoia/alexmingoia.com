@@ -6,6 +6,6 @@ permalink: no-versions
 
 # Better software without versions
 
-Versions are supposed to communicate change. We want to use new code, fix bugs, and improve things. We care about changes, so why care about versions? Why not always upgrade? Because versions are used to communicate two kinds of changes: breaking and non-breaking. If we want to make breaking changes, we use versions to communicate this.
+Software improves with each release by adding new features, fixing bugs, or improving performance. So why not always upgrade? Because some changes break the interface others depend on. The promise of semantic versioning is to separate breaking changes. A promise, or an excuse?
 
-*But we don't have to make breaking changes.* Versions are an excuse to break things. We shouldn't break things. Instead, we can add an additional argument, add a function, or add a namespace. Add to the interface. Forget versions. Ship better software by not breaking stuff.
+*Changes don't have to break things.* New features can be added to an API without breaking it. Functions or additional arguments can be added. Modules can be namespaced. Semantic versions aren't a promise – they're an excuse. Versions are a consequence of the choice to break software. But it's a choice. Software can improve while remaining backwards-compatible.
