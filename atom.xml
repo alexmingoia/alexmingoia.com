@@ -5,14 +5,14 @@
 	<link href="https://alexmingoia.com/rss.xml" rel="self" />
 	<link href="https://alexmingoia.com/" />
 	<id>https://alexmingoia.com/rss.xml</id>
-<updated>2022-09-18T16:02:06Z</updated>
+<updated>2022-09-18T16:05:18Z</updated>
 <entry>
 	<id>https://alexmingoia.com/no-versions</id>
 	<title>Better software without versions</title>
 	<published>2022-08-20</published>
 	<updated>2022-08-20</updated>
 	<content type="html">&lt;h1 id=&quot;better-software-without-versions&quot;&gt;Better software without versions&lt;/h1&gt;
-&lt;p&gt;Software improves with each release by adding new features, fixing bugs, or improving performance. Versioning promises to alleviate the pain of compatibility. Software engineers are great at devising solutions – even for problems they introduce.&lt;/p&gt;
+&lt;p&gt;Software improves with each release by adding new features, fixing bugs, or improving performance. Versioning promises to alleviate the pain of incompatibility. Software engineers are great at devising solutions – even for problems they introduce.&lt;/p&gt;
 &lt;p&gt;Incompatibility isn&amp;#39;t some force of nature. It&amp;#39;s a deliberate design choice. &lt;em&gt;Changes don&amp;#39;t have to break things.&lt;/em&gt; New features can be added to an API without breaking it. Functions can be added. Options and parameters can be extended. Modules can be namespaced. Semantic versions aren&amp;#39;t a promise – they&amp;#39;re an excuse. Versions are a consequence of the choice to break software. But it&amp;#39;s a choice. Software can improve while remaining backwards-compatible.&lt;/p&gt;
 </content>
 </entry>
