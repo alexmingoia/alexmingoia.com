@@ -81,9 +81,10 @@ write_page() {
 
 	sed "s/{{title}}/$title/" templates/$4.header.html >> "$target"
 
-	mmark -i "$filename" >> "$target"
+	head -1 "$filename" | mmark >> "$target"
+	tail +4 "$filename" | mmark >> "$target"
 
-	sed "s/{{date}}/$created/" templates/$4.footer.html >> "$target"
+	sed "s/{{date}}/$created/g" templates/$4.footer.html >> "$target"
 }
 
 rm -fr build && mkdir build
@@ -95,3 +96,5 @@ atom_xml build/posts.tsv > build/atom.xml
 while read -r f title created; do
 	write_page "$f" "$title" "$created" "post"
 done < build/posts.tsv
+
+cp main.css build/main.css
