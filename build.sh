@@ -96,5 +96,3 @@ atom_xml build/posts.tsv > build/atom.xml
 while read -r f title created; do
 	write_page "$f" "$title" "$created" "post"
 done < build/posts.tsv
-
-cp main.css build/main.css
