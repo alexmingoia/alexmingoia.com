@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<updated>{{updated}}</updated>
+	<title>Alex Mingoia</title>
+	<subtitle>Recent posts from Alex's blog.</subtitle>
+	<link href="https://www.alexmingoia.com/feed.xml" rel="self" />
+	<link href="https://www.alexmingoia.com/" />
+	<id>https://www.alexmingoia.com/feed.xml</id>
+	<icon>/images/alex.jpeg</icon>
+	<logo>/images/alex.jpeg</logo>
+	<author>
+		<name>Alex Mingoia</name>
+		<uri>https://www.alexmingoia.com/</uri>
+	</author>
+  {{& entries}}
+</feed>

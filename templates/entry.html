@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" charset="UTF-8">
+	<head>
+		<title>{{title}}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sindresorhus/modern-normalize@v1.1.0/modern-normalize.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/alexmingoia/zero.css@2023-07-04/zero.min.css" />
+    <link rel="icon" type="image/jpeg" href="/images/alex-rounded.png" />
+	</head>
+	<body container padding-top="xl" padding-horizontal="md" style="display: flex; flex-direction: column;">
+		<header>
+			<img src="/images/alex.jpeg" rounded width="72" height="72" alt="Alex Mingoia" />
+		</header>
+		<div style="flex: 1;">
+			<article text-size="lg">
+				{{& output}}
+			</article>
+			<hr/>
+			<footer>
+				<p><strong>Hi, I'm <a href="/">Alex Mingoia</a>.</strong> You can follow me on Twitter <a href="https://twitter.com/alexmingoia">@alexmingoia</a>, or get in touch <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a>.</p>
+				<p>Does your startup need help? <a href="/fractional-cto">Work with me</a>.</p>
+			</footer>
+		</div>
+		<p text-align="center" text-color="muted" text-size="sm" margin-top="xl">{{date}}</p>
+	</body>
+</html>
