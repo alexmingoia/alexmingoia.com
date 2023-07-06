@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<updated>2023-07-04 12:55:09+0630</updated>
+	<updated>2023-07-06 21:36:46+0630</updated>
 	<title>Alex Mingoia</title>
 	<subtitle>Recent posts from Alex's blog.</subtitle>
 	<link href="https://www.alexmingoia.com/feed.xml" rel="self" />
@@ -13,14 +13,88 @@
 		<uri>https://www.alexmingoia.com/</uri>
 	</author>
   <entry>
+	<title>Engineering velocity</title>
+	<link rel="alternate" type="text/html" href="https://www.alexmingoia.com/engineering-velocity"/>
+	<id>https://www.alexmingoia.com/engineering-velocity</id>
+	<updated>2023-07-06</updated>
+	<content type="html">
+    &lt;h1 id=&quot;engineering-velocity&quot;&gt;&lt;a href=&quot;/engineering-velocity&quot;&gt;Engineering velocity&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The quickest way forward is knowing your next step. You can only move as fast as you have answers to “How do we ship?”&lt;/p&gt;
+&lt;p&gt;In other words, &lt;em&gt;engineering velocity is knowing the way forward.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Many of the decisions between idea and release can be made once and leveraged repeatedly. Distilled they become standard operating procedures (SOPs).&lt;/p&gt;
+&lt;p&gt;Technical SOPs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+Linter and code formatter
+&lt;/li&gt;
+&lt;li&gt;
+Branching workflow
+&lt;/li&gt;
+&lt;li&gt;
+Test framework
+&lt;/li&gt;
+&lt;li&gt;
+Expected test coverage
+&lt;/li&gt;
+&lt;li&gt;
+Automated tests
+&lt;/li&gt;
+&lt;li&gt;
+Automated deployment
+&lt;/li&gt;
+&lt;li&gt;
+Standard UI library
+&lt;/li&gt;
+&lt;li&gt;
+Standard API schema (REST with flat resources, graphQL, etc.)
+&lt;/li&gt;
+&lt;li&gt;
+Data migration process
+&lt;/li&gt;
+&lt;li&gt;
+Data handling and PI checklist
+&lt;/li&gt;
+&lt;li&gt;
+Security checklist or linter
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Organizational SOPs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+Definition of done for new features
+&lt;/li&gt;
+&lt;li&gt;
+Definition of ready for user stories, tickets, or project briefs
+&lt;/li&gt;
+&lt;li&gt;
+How and when new work is assigned
+&lt;/li&gt;
+&lt;li&gt;
+When and where progress is reported
+&lt;/li&gt;
+&lt;li&gt;
+How and when new work is reviewed
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Do buttons need rounded corners? Maybe. I know if you have a standard UI library you don&amp;#39;t have to revisit what a button looks like every new feature.&lt;/p&gt;
+&lt;p&gt;Do user stories need to be wireframed? Maybe. I know if you have a standard definition of ready you don&amp;#39;t need ask the same questions every new feature.&lt;/p&gt;
+&lt;p&gt;&amp;quot;How do we ship?&amp;quot; is worth considering.&lt;/p&gt;
+	</content>
+	<author>
+		<name>Alex Mingoia</name>
+	</author>
+</entry>
+<entry>
 	<title>Commitments are more powerful than estimates</title>
 	<link rel="alternate" type="text/html" href="https://www.alexmingoia.com/commitments-and-estimates"/>
 	<id>https://www.alexmingoia.com/commitments-and-estimates</id>
 	<updated>2023-07-03</updated>
 	<content type="html">
     &lt;h1 id=&quot;commitments-are-more-powerful-than-estimates&quot;&gt;&lt;a href=&quot;/commitments-and-estimates&quot;&gt;Commitments are more powerful than estimates&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Commitments promise to deliver. And delivering on a promise creates trust. Commitments give us something to live up to. Estimates gives us an excuse.&lt;/p&gt;
-&lt;p&gt;Don&amp;#39;t mistake estimates for safety. Certainty is safety. There’s power in people trusting you to deliver.&lt;/p&gt;
+&lt;p&gt;Commitments promise to deliver. And delivering a promise creates trust.&lt;/p&gt;
+&lt;p&gt;Commitments give us something to live up to. Estimates gives us an excuse.&lt;/p&gt;
+&lt;p&gt;Don&amp;#39;t mistake estimates for safety. Certainty is safety.&lt;/p&gt;
+&lt;p&gt;There’s power in people trusting you to deliver.&lt;/p&gt;
 	</content>
 	<author>
 		<name>Alex Mingoia</name>
