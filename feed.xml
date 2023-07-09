@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<updated>2023-07-06 21:36:46+0630</updated>
+	<updated>2023-07-09 21:34:39+0630</updated>
 	<title>Alex Mingoia</title>
 	<subtitle>Recent posts from Alex's blog.</subtitle>
 	<link href="https://www.alexmingoia.com/feed.xml" rel="self" />
@@ -18,8 +18,7 @@
 	<id>https://www.alexmingoia.com/engineering-velocity</id>
 	<updated>2023-07-06</updated>
 	<content type="html">
-    &lt;h1 id=&quot;engineering-velocity&quot;&gt;&lt;a href=&quot;/engineering-velocity&quot;&gt;Engineering velocity&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;The quickest way forward is knowing your next step. You can only move as fast as you have answers to “How do we ship?”&lt;/p&gt;
+    &lt;p&gt;The quickest way forward is knowing your next step. You can only move as fast as you have answers to “How do we ship?”&lt;/p&gt;
 &lt;p&gt;In other words, &lt;em&gt;engineering velocity is knowing the way forward.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Many of the decisions between idea and release can be made once and leveraged repeatedly. Distilled they become standard operating procedures (SOPs).&lt;/p&gt;
 &lt;p&gt;Technical SOPs:&lt;/p&gt;
@@ -90,8 +89,7 @@ How and when new work is reviewed
 	<id>https://www.alexmingoia.com/commitments-and-estimates</id>
 	<updated>2023-07-03</updated>
 	<content type="html">
-    &lt;h1 id=&quot;commitments-are-more-powerful-than-estimates&quot;&gt;&lt;a href=&quot;/commitments-and-estimates&quot;&gt;Commitments are more powerful than estimates&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Commitments promise to deliver. And delivering a promise creates trust.&lt;/p&gt;
+    &lt;p&gt;Commitments promise to deliver. And delivering a promise creates trust.&lt;/p&gt;
 &lt;p&gt;Commitments give us something to live up to. Estimates gives us an excuse.&lt;/p&gt;
 &lt;p&gt;Don&amp;#39;t mistake estimates for safety. Certainty is safety.&lt;/p&gt;
 &lt;p&gt;There’s power in people trusting you to deliver.&lt;/p&gt;
@@ -106,8 +104,7 @@ How and when new work is reviewed
 	<id>https://www.alexmingoia.com/against-versions</id>
 	<updated>2022-08-20</updated>
 	<content type="html">
-    &lt;h1 id=&quot;against-versions&quot;&gt;&lt;a href=&quot;/against-versions&quot;&gt;Against versions&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Software engineers are great at devising solutions for problems they introduce. Versioning promises to alleviate the pain of incompatibility. But incompatibility isn&amp;#39;t some force of nature. It&amp;#39;s a design choice. &lt;em&gt;Changes don&amp;#39;t have to break things.&lt;/em&gt; Functions can be added, options extended, modules namespaced. Versions are often an excuse to break software, rather than a promise of something better.&lt;/p&gt;
+    &lt;p&gt;Software engineers are great at devising solutions for problems they introduce. Versioning promises to alleviate the pain of incompatibility. But incompatibility isn&amp;#39;t some force of nature. It&amp;#39;s a design choice. &lt;em&gt;Changes don&amp;#39;t have to break things.&lt;/em&gt; Functions can be added, options extended, modules namespaced. Versions are often an excuse to break software, rather than a promise of something better.&lt;/p&gt;
 	</content>
 	<author>
 		<name>Alex Mingoia</name>
