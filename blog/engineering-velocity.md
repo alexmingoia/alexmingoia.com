@@ -1,9 +1,6 @@
----
-title: Engineering velocity
-date: 2023-07-06
----
-
 # Engineering velocity
+
+2023-07-06
 
 The quickest way forward is knowing your next step. You can only move as fast as you have answers to “How do we ship?”
 

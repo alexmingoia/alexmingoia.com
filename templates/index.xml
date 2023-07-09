@@ -12,5 +12,5 @@
 		<name>Alex Mingoia</name>
 		<uri>https://www.alexmingoia.com/</uri>
 	</author>
-  {{& entries}}
+  {{content}}
 </feed>

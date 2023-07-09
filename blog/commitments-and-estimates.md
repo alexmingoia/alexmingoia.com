@@ -1,9 +1,6 @@
----
-title: Commitments are more powerful than estimates
-date: 2023-07-03
----
-
 # Commitments are more powerful than estimates
+
+2023-07-03
 
 Commitments promise to deliver. And delivering a promise creates trust.
 

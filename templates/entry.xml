@@ -4,7 +4,7 @@
 	<id>{{permalink}}</id>
 	<updated>{{updated}}</updated>
 	<content type="html">
-    {{& content}}
+    {{content}}
 	</content>
 	<author>
 		<name>Alex Mingoia</name>
