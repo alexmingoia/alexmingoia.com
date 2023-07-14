@@ -1,4 +1,4 @@
-# Successful startups solve problems for both themselves and for their customers.
+# Successful startups solve problems for both themselves and their customers.
 
 I solve for tech success:
 
