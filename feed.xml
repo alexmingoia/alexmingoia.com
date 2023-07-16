@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<updated>2023-07-15 21:08:57+0630</updated>
+	<updated>2023-07-16 16:28:19+0630</updated>
 	<title>Alex Mingoia</title>
 	<subtitle>Recent posts from Alex's blog.</subtitle>
 	<link href="https://www.alexmingoia.com/feed.xml" rel="self" />
@@ -42,10 +42,13 @@ Automated tests
 Automated deployment
 &lt;/li&gt;
 &lt;li&gt;
-Standard UI library
+UI library
 &lt;/li&gt;
 &lt;li&gt;
-Standard API schema (REST with flat resources, graphQL, etc.)
+data access patterns
+&lt;/li&gt;
+&lt;li&gt;
+API standard
 &lt;/li&gt;
 &lt;li&gt;
 Data migration process
@@ -60,24 +63,27 @@ Security checklist or linter
 &lt;p&gt;Organizational SOPs:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-Definition of done for new features
+Definition of done for new work
 &lt;/li&gt;
 &lt;li&gt;
-Definition of ready for user stories, tickets, or project briefs
+Definition of ready for user storiest and tickets
 &lt;/li&gt;
 &lt;li&gt;
-How and when new work is assigned
+How work is assigned
 &lt;/li&gt;
 &lt;li&gt;
-When and where progress is reported
+How progress is reported
 &lt;/li&gt;
 &lt;li&gt;
-How and when new work is reviewed
+How work is accepted
+&lt;/li&gt;
+&lt;li&gt;
+Review checklist
+&lt;/li&gt;
+&lt;li&gt;
+Release checklist
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Do buttons need rounded corners? Maybe. I know if you have a standard UI library you don&amp;#39;t have to revisit what a button looks like every new feature.&lt;/p&gt;
-&lt;p&gt;Do user stories need to be wireframed? Maybe. I know if you have a standard definition of ready you don&amp;#39;t need ask the same questions every new feature.&lt;/p&gt;
-&lt;p&gt;&amp;quot;How do we ship?&amp;quot; is worth considering.&lt;/p&gt;
 	</content>
 	<author>
 		<name>Alex Mingoia</name>
