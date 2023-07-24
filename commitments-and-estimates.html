@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" charset="UTF-8">
 	<head>
-		<title>Commitments are more powerful than estimates | Alex Mingoia</title>
+		<title>Commitments versus estimates | Alex Mingoia</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/alexmingoia/zero.css@2023-07-19/zero.min.css" />
+		<meta name="description" content="Writing, notes, and projects by Alex Mingoia." />
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/alexmingoia/zero.css@2023-07-24/zero.min.css" />
     <link rel="icon" type="image/jpeg" href="/images/alex-rounded.png" />
 		<link rel="alternative" type="application/atom+xml" href="https://www.alexmingoia.com/feed.xml" />
+		<style>
+			@media (prefers-color-scheme: light) {
+				:root {
+					--color-background: #f8fafc;
+					--color-foreground: #e2e8f0;
+					--color-foreground-muted: #f1f5f9;
+					--color-foreground-accent: #cbd5e1;
+					--color-text-base: #0f172a;
+					--color-text-emphasis: #020617;
+					--color-text-muted: #64748b;
+				}
+			}
+		</style>
 	</head>
-	<body container max-width="sm" padding-top="xl" padding-bottom="2xl" padding-horizontal="lg" text-type="serif">
-    <header>
-	<a href="/"><img src="/images/alex.jpeg" rounded width="72" height="72" alt="Alex Mingoia" /></a>
-</header>
-<article>
+	<body container max-width="sm" padding-top="lg" padding-bottom="2xl" padding-horizontal="lg">
+		<header distribute="across" align="center" margin-bottom="xl">
+			<h1 text-size="lg" text-weight="400" margin="none"><a href="/">Alex Mingoia</a></h1>
+			<img src="/images/alex.jpeg" rounded width="32" height="32" alt="Alex Mingoia" />
+		</header>
+    <article text-size="lg">
 	<hgroup text-type="sans-serif">
-		<h1>Commitments are more powerful than estimates</h1>
-		<p>By Alex Mingoia &bullet; <time> 3 Jul 2023</time></p>
+		<p><time> 3 Jul 2023</time></p>
+		<h1>Commitments versus estimates</h1>
 	</hgroup>
 	<p>Commitments promise to deliver. And delivering a promise creates trust.</p>
 <p>Commitments give us something to live up to. Estimates gives us an excuse.</p>
@@ -25,13 +40,12 @@
 <footer text-size="sm">
 	<hr>
 	<p>⏴ <a href="/" text-weight="600">Alex Mingoia</a></p>
-	<p>Reach out: <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a><br>Follow me on Twitter: <a href="https://twitter.com/alexmingoia">@alexmingoia</a><br>Need help? <a href="/work-with-me">Work with me</a></p>
-	<hr>
+	<p margin-bottom="none">Reach out: <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a><br>X.com: <a href="https://x.com/alexmingoia">@alexmingoia</a></p>
 	<p id="newsletter-confirmation" text-weight="600" padding="md" style="display: none; border: 1px dashed var(--color-foreground-accent); border-radius: 0.25rem;">
 		Please check your email to confirm the subscription.
 	</p>
 	<form id="newsletter-form" action="https://assets.mailerlite.com/jsonp/509676/forms/93599859849824067/subscribe" data-code="" method="post" target="_blank" max-width="xs">
-		<p>Receive future blog entries in your inbox:</p>
+		<p margin-top="none">Receive blog entries via <a href="/feed.xml">RSS</a> or email:</p>
 		<div distribute text-size="md">
 			<input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" required autocomplete="email" margin-right="sm">
 			<button type="submit" class="primary">Subscribe</button>
