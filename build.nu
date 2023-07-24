@@ -1,4 +1,7 @@
 let site_title = 'Alex Mingoia'
+let site_url = 'https://www.alexmingoia.com'
+
+alias markdown = mmark
 
 # prepare directory for build
 rm -rf build/
@@ -7,55 +10,80 @@ mkdir build
 # copy images
 cp -r images build/images
 
-# write pages
-glob pages/*.md
-  | wrap filename
-  | insert md { |it| open $it.filename --raw | decode utf-8 }
-  | insert name { |it| $it.filename | path basename | str replace ".md" "" }
-  | insert page_title { |it| $'($it.name | str capitalize | str replace --all "-" " ") | ($site_title)' }
-  | insert title { |it| $it.md | parse --regex '# ([^\n]+)' | get capture0 | append "" | first }
-  | update md { |it| $it.md | str replace '# ([^\n]+)\n\n([\d-]+\n\n)?' "" }
-  | each { |it| $it.md | mmark | render_html 'page' {title: $it.title} | render_html 'layout' {title: $it.page_title} | save $'build/($it.name).html' }
+# compile pages table
+let pages = (
+  glob pages/*.md
+    | wrap filename
+    | insert url { |it| $it.filename | path basename | str replace ".md" "" }
+    | insert md { |it| open $it.filename }
+    | insert metadata { |it| $it.md | extract_metadata }
+)
 
-# annotate blog entry markdown with title and date
-let entries = (
+# compile blog entries table
+let blog_entries = (
   glob blog/*.md
     | wrap filename
-    | insert name { |it| $it.filename | path basename | str replace '.md$' '' }
-    | insert md { |it| open $it.filename --raw | decode utf-8 }
-    | insert title { |it| $it.md | parse --regex '# ([^\n]+)' | get capture0 | append "" | first }
-    | insert date { |it| $it.md | parse --regex '\n\n([\d-]+)\n\n' | get capture0 | append "" | first }
-    | update md { |it| $it.md | str replace '# ([^\n]+)\n\n([\d-]+\n\n)?' "" }
+    | insert url { |it| $it.filename | path basename | str replace ".md" "" }
+    | insert md { |it| open $it.filename }
+    | insert metadata { |it| $it.md | extract_metadata }
+    | insert date { |it| $it.metadata.date }
+    | insert tags { |it| try { $it.metadata | get tags | split row -r ', ?' } catch { [] } }
     | sort-by date --reverse
 )
 
-# write blog pages
-$entries | each { |it| $it.md | mmark | render_html 'entry' {title: $it.title, date: ($it.date | date format "%e %b %Y")} | render_html 'layout' {title: $'($it.title) | ($site_title)'} | save $'build/($it.name).html' }
+# write pages
+$pages | each { |it| $it.md | str replace '# (.+)' '' | markdown | render 'page.html' $it.metadata | render 'layout.html' {title: $'($it.metadata.title) | ($site_title)'} | save $'build/($it.url).html' }
+
+# write blog entries
+$blog_entries | each { |it| $it.md | str replace '# (.+)' '' | markdown | render 'entry.html' ($it.metadata | upsert date { |metadata| $metadata.date | date format "%e %b %Y" }) | render 'layout.html' {title: $'($it.metadata.title) | ($site_title)'} | save $'build/($it.url).html' }
 
 # concatenate entries and write index page
-$entries
-  | each { |it| $it.md | mmark | render_html 'index.entry' {title: $it.title, date: ($it.date | date format "%e %b %Y"), url: $'/($it.name)'} }
-  | str join "<hr />"
-  | render_html 'index'
-  | render_html 'layout' {title: $site_title}
+let blog_entries_list_html = (
+  $blog_entries
+    | each { |it| $it.md | str replace '# (.+)' '' | markdown | render 'index.entry.html' ($it.metadata | upsert url $'/($it.url)') }
+    | str join ""
+)
+
+let latest_entry_html = (
+  $blog_entries
+    | take 1
+    | each { |it| $it.md | split row "---\n\n" | last | str replace "# .+\n\n" '' | lines | first | render 'index.latest.html' ($it.metadata | upsert url $'/($it.url)' | upsert date { |metadata| $metadata.date | date format "%e %b %Y" } ) }
+    | first
+) 
+
+$blog_entries_list_html
+  | render 'index.html' {latest: $latest_entry_html}
+  | render 'layout.html' {title: $site_title}
   | save 'build/index.html'
 
 # write RSS/Atom feed to build/feed.xml
 let index_entries_atom = (
-  $entries
-    | each { |it| open 'templates/entry.xml' --raw | decode 'utf-8' | str replace '{{title}}' $it.title | str replace '{{updated}}' $it.date | str replace --all '{{permalink}}' $'https://www.alexmingoia.com/($it.name)' | str replace '{{content}}' ($it.md | mmark | escape-html) }
+  $blog_entries
+    | each { |it| $it.md | markdown | escape-html | render 'entry.xml' ($it.metadata | upsert updated $it.metadata.date | upsert permalink $'($site_url)/($it.url)') }
     | str join ""
 )
-open 'templates/index.xml' --raw | decode utf-8 | str replace '{{updated}}' (date now | date format "%Y-%m-%d %H:%M:%S%z") | str replace '{{content}}' $index_entries_atom | save 'build/feed.xml'
+$index_entries_atom | render 'index.xml' {updated: (date now | date format "%Y-%m-%d %H:%M:%S%z")} | save 'build/feed.xml'
+
+# return record of markdown metadata
+def extract_metadata [] {
+  let content = ($in | split row "---\n")
+  if ($content | length) > 1 {
+    $content | drop nth 0 | first | lines | each { |it| $it | split column ': ' } | flatten | transpose -r | into record
+  } else {
+    { title: ($content | parse -r '# (.+)' | values | flatten | first | escape-html) }
+  }
+}
+
+# render HTML template, replacing {{var}} with vars record value
+def render [partial, vars] {
+  let content = $in
+  let tpl = (open $'templates/($partial)' --raw | decode utf-8 | str replace '{{content}}' $content)
+  let tpl_vars = ($tpl | parse --regex '{{(\w+)}}').capture0
+  $tpl_vars | reduce -f $tpl { |it, acc| try { $acc | str replace $"{{($it)}}" ($vars | get $it) } catch { $acc | str replace '${{($it)}}' '' } } 
+}
 
 # HTML content must be escaped in Atom+XML
 def escape-html [] {
   str replace --all '&' '&amp;' | str replace --all '<' '&lt;' | str replace --all '>' '&gt;' | str replace --all '"' '&quot;' | str replace --all "'" '&#39;'
 }
 
-def render_html [partial, vars = {}] {
-  let content = $in
-  let tpl_html = (open $'templates/($partial).html' | str replace '{{content}}' $content)
-  let tpl_vars = ($tpl_html | parse --regex '{{(\w+)}}').capture0
-  $tpl_vars | reduce -f $tpl_html { |it, acc| try { $acc | str replace $'{{($it)}}' ($vars | get $it | escape-html) } catch { $acc | str replace '${{($it)}}' '' } } 
-}

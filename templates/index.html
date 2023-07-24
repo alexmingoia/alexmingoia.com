@@ -1,9 +1,45 @@
-<section>
-  <img src="/images/alex.jpeg" rounded width="72" height="72" alt="Alex Mingoia" />
-	<h1 text-type="sans-serif">Hi, I'm Alex</h1>
-	<p>Reach out: <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a><br>Follow me on Twitter: <a href="https://twitter.com/alexmingoia">@alexmingoia</a><br>Need help? <a href="/work-with-me">Work with me</a></p>
-</section>
+{{latest}}
 <hr/>
-<section>
-	{{content}}
-</section>
+<h2 text-size="lg">Writing</h2>
+<ul>
+{{content}}
+</ul>
+<p id="newsletter-confirmation" text-weight="600" padding="md" style="display: none; border: 1px dashed var(--color-foreground-accent); border-radius: 0.25rem;">
+	Please check your email to confirm the subscription.
+</p>
+<form id="newsletter-form" action="https://assets.mailerlite.com/jsonp/509676/forms/93599859849824067/subscribe" data-code="" method="post" target="_blank" max-width="xs">
+	<p>Receive blog entries via <a href="/feed.xml">RSS</a> or email:</p>
+	<div distribute text-size="md">
+		<input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" required autocomplete="email" margin-right="sm">
+		<button type="submit" class="primary">Subscribe</button>
+		<input type="hidden" name="anticsrf" value="true">
+    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128" type="text/javascript"></script>
+		<script>
+			var confirmation = document.getElementById("newsletter-confirmation");
+			var form = document.getElementById('newsletter-form');
+			var button = form.querySelector('button[type=submit]') ;
+			form.addEventListener('submit', function(ev) {
+				ev.preventDefault();
+				button.disabled = true;
+				button.setAttribute('aria-busy', 'true');
+				var formData = new FormData(ev.target);
+				fetch(ev.target.getAttribute('action'), {
+					method: 'POST',
+					body: formData,
+				}).then(function(res) {
+					button.disabled = false
+					button.removeAttribute("aria-busy")
+					confirmation.style.display = "block";
+					form.style.display = "none";
+				}).catch(function(error) {
+					console.log(error)
+					button.disabled = false
+					button.removeAttribute("aria-busy")
+				})
+			});
+		</script>
+	</div>
+</form>
+<hr/>
+<h2 text-size="lg">Reach out</h2>
+<p>Feel free to email me at <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a>. I'm also on X.com as <a href="https://x.com/alexmingoia">@alexmingoia</a>.</p>

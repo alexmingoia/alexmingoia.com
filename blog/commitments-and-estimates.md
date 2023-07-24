@@ -1,6 +1,10 @@
-# Commitments are more powerful than estimates
+---
+title: Commitments versus estimates
+date: 2023-07-03
+tags: excellence
+---
 
-2023-07-03
+# Commitments are more powerful than estimates
 
 Commitments promise to deliver. And delivering a promise creates trust.
 

@@ -1,23 +1,19 @@
-<header>
-	<a href="/"><img src="/images/alex.jpeg" rounded width="72" height="72" alt="Alex Mingoia" /></a>
-</header>
-<article>
+<article text-size="lg">
 	<hgroup text-type="sans-serif">
+		<p><time>{{date}}</time></p>
 		<h1>{{title}}</h1>
-		<p>By Alex Mingoia &bullet; <time>{{date}}</time></p>
 	</hgroup>
 	{{content}}
 </article>
 <footer text-size="sm">
 	<hr>
 	<p>⏴ <a href="/" text-weight="600">Alex Mingoia</a></p>
-	<p>Reach out: <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a><br>Follow me on Twitter: <a href="https://twitter.com/alexmingoia">@alexmingoia</a><br>Need help? <a href="/work-with-me">Work with me</a></p>
-	<hr>
+	<p margin-bottom="none">Reach out: <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a><br>X.com: <a href="https://x.com/alexmingoia">@alexmingoia</a></p>
 	<p id="newsletter-confirmation" text-weight="600" padding="md" style="display: none; border: 1px dashed var(--color-foreground-accent); border-radius: 0.25rem;">
 		Please check your email to confirm the subscription.
 	</p>
 	<form id="newsletter-form" action="https://assets.mailerlite.com/jsonp/509676/forms/93599859849824067/subscribe" data-code="" method="post" target="_blank" max-width="xs">
-		<p>Receive future blog entries in your inbox:</p>
+		<p margin-top="none">Receive blog entries via <a href="/feed.xml">RSS</a> or email:</p>
 		<div distribute text-size="md">
 			<input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" required autocomplete="email" margin-right="sm">
 			<button type="submit" class="primary">Subscribe</button>

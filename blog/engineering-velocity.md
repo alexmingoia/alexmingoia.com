@@ -1,6 +1,10 @@
-# Engineering velocity
+---
+title: Engineering velocity
+date: 2023-07-06
+tags: programming, management, rituals
+---
 
-2023-07-06
+# Engineering velocity
 
 The quickest way forward is knowing your next step. You can only move as fast as you have answers to “How do we ship?”
 
