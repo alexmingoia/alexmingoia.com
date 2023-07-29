@@ -4,26 +4,27 @@
 		<title>{{title}}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="Writing, notes, and projects by Alex Mingoia." />
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/alexmingoia/zero.css@2023-07-24/zero.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/alexmingoia/zero.css@2023-07-29/zero.min.css" />
     <link rel="icon" type="image/jpeg" href="/images/alex-rounded.png" />
 		<link rel="alternative" type="application/atom+xml" href="https://www.alexmingoia.com/feed.xml" />
 		<style>
 			@media (prefers-color-scheme: light) {
 				:root {
-					--color-background: #f8fafc;
-					--color-foreground: #e2e8f0;
-					--color-foreground-muted: #f1f5f9;
-					--color-foreground-accent: #cbd5e1;
-					--color-text-base: #0f172a;
-					--color-text-emphasis: #020617;
-					--color-text-muted: #64748b;
+					--color-text-highlight: #fff2ed;
+					--color-text-highlight-emphasis: #ffe3d6;
+				}
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--color-text-highlight: #421906;
+					--color-text-highlight-emphasis: #7c3412;
 				}
 			}
 		</style>
 	</head>
-	<body container max-width="sm" padding-top="lg" padding-bottom="2xl" padding-horizontal="lg">
+	<body container max-width="sm" padding="lg">
 		<header distribute="across" align="center" margin-bottom="xl">
-			<h1 text-size="lg" text-weight="400" margin="none"><a href="/">Alex Mingoia</a></h1>
+			<h1 text-size="md" text-weight="300" margin="none"><a href="/">Alex Mingoia</a></h1>
 			<img src="/images/alex.jpeg" rounded width="32" height="32" alt="Alex Mingoia" />
 		</header>
     {{content}}
