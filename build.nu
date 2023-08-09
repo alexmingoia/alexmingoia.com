@@ -61,6 +61,7 @@ $blog_entries_list_html
 # write RSS/Atom feed to build/feed.xml
 let index_entries_atom = (
   $blog_entries
+    | where { |it| try { $it.metadata.index != "false" } catch { true } }
     | each { |it| $it.md | markdown | escape-html | render 'entry.xml' ($it.metadata | upsert updated $it.metadata.date | upsert permalink $'($site_url)/($it.url)') }
     | str join ""
 )
