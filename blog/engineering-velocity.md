@@ -2,6 +2,7 @@
 title: Engineering velocity
 date: 2023-07-06
 tags: programming, management, rituals
+index: false
 ---
 
 # Engineering velocity

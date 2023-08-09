@@ -1,44 +1,52 @@
-{{latest}}
-<h2>Writing</h2>
-<ul>
-{{content}}
-</ul>
-<p id="newsletter-confirmation" text-weight="600" padding="md" style="display: none; border: 1px dashed var(--color-foreground-accent); border-radius: 0.25rem;">
-	Please check your email to confirm the subscription.
-</p>
-<form id="newsletter-form" action="https://assets.mailerlite.com/jsonp/509676/forms/93599859849824067/subscribe" data-code="" method="post" target="_blank" max-width="xs">
-	<p>Receive blog entries via <a href="/feed.xml">RSS</a> or email:</p>
-	<div distribute text-size="md">
-		<input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" required autocomplete="email" margin-right="sm">
-		<button type="submit" class="primary">Subscribe</button>
-		<input type="hidden" name="anticsrf" value="true">
-    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128" type="text/javascript" async></script>
-		<script>
-			var confirmation = document.getElementById("newsletter-confirmation");
-			var form = document.getElementById('newsletter-form');
-			var button = form.querySelector('button[type=submit]') ;
-			form.addEventListener('submit', function(ev) {
-				ev.preventDefault();
-				button.disabled = true;
-				button.setAttribute('aria-busy', 'true');
-				var formData = new FormData(ev.target);
-				fetch(ev.target.getAttribute('action'), {
-					method: 'POST',
-					body: formData,
-				}).then(function(res) {
-					button.disabled = false
-					button.removeAttribute("aria-busy")
-					confirmation.style.display = "block";
-					form.style.display = "none";
-				}).catch(function(error) {
-					console.log(error)
-					button.disabled = false
-					button.removeAttribute("aria-busy")
-				})
-			});
-		</script>
-	</div>
-</form>
-<h2>Reach out</h2>
-<p>Don't hesitate to email <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a>. I enjoy making new connections, sharing perspective, and offering advice.</p>
-<p>You can also find me on 𝕏 as <a href="https://x.com/alexmingoia">@alexmingoia</a></p>
+<header margin-bottom="xl">
+	<img src="/images/alex-rounded.png" width="64" height="64" rounded alt="Alex Mingoia" />
+</header>
+<main>
+	<section>
+		<h1>Hello. I'm Alex Mingoia.</h1>
+		<p text-size="l">I help SaaS companies via coaching and product development at <a href="https://www.moonpine.dev/">moonpine.dev</a>. I also run <a href="https://sumi.news/">sumi.news</a>.</p>
+		<p text-size="l">I reply to every email: <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a>. You can also find me in San Francisco, or online at <a href="https://x.com/alexmingoia">𝕏</a>.</p>
+	</section>
+	<section>
+	{{content}}
+	</section>
+</main>
+<footer text-size="s">
+	<hr margin-bottom="s">
+	<p id="newsletter-confirmation" text-weight="600" padding="s" style="display: none; border: 1px dashed var(--color-foreground-accent); border-radius: 0.25rem;">
+		Please check your email to confirm the subscription.
+	</p>
+	<form id="newsletter-form" action="https://assets.mailerlite.com/jsonp/509676/forms/93599859849824067/subscribe" data-code="" method="post" target="_blank" max-width="xs">
+		<p margin-top="none">Receive new blog entries via <a href="/feed.xml">RSS</a>, <a href="https://x.com/alexmingoia/">𝕏 @alexmingoia</a>, or email:</p>
+		<div distribute text-size="m">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" required autocomplete="email" margin-right="2xs">
+			<div><button type="submit" class="primary">Subscribe</button></div>
+			<input type="hidden" name="anticsrf" value="true">
+	    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128" type="text/javascript" async></script>
+			<script>
+				var confirmation = document.getElementById("newsletter-confirmation");
+				var form = document.getElementById('newsletter-form');
+				var button = form.querySelector('button[type=submit]') ;
+				form.addEventListener('submit', function(ev) {
+					ev.preventDefault();
+					button.disabled = true;
+					button.setAttribute('aria-busy', 'true');
+					var formData = new FormData(ev.target);
+					fetch(ev.target.getAttribute('action'), {
+						method: 'POST',
+						body: formData,
+					}).then(function(res) {
+						button.disabled = false
+						button.removeAttribute("aria-busy")
+						confirmation.style.display = "block";
+						form.style.display = "none";
+					}).catch(function(error) {
+						console.log(error)
+						button.disabled = false
+						button.removeAttribute("aria-busy")
+					})
+				});
+			</script>
+		</div>
+	</form>
+</footer>
