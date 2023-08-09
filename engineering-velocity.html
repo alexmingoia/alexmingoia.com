@@ -1,37 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" charset="UTF-8">
 	<head>
-		<title>Engineering velocity | Alex Mingoia</title>
+		<title>Engineering velocity Alex Mingoia</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="Writing, notes, and projects by Alex Mingoia." />
-		<link rel="stylesheet" type="text/css" href="/zero.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/alexmingoia/zero.css@2023-08-09/zero.min.css" />
     <link rel="icon" type="image/jpeg" href="/images/alex-rounded.png" />
 		<link rel="alternative" type="application/atom+xml" href="https://www.alexmingoia.com/feed.xml" />
-		<style>
-			@media (prefers-color-scheme: light) {
-				:root {
-					--color-text-highlight: #fff2ed;
-					--color-text-highlight-emphasis: #ffe3d6;
-				}
-			}
-			@media (prefers-color-scheme: dark) {
-				:root {
-					--color-text-highlight: #421906;
-					--color-text-highlight-emphasis: #7c3412;
-				}
-			}
-		</style>
 	</head>
-	<body container max-width="sm" padding="lg">
-		<header distribute="across" align="center" margin-bottom="xl">
-			<nav>
-				<h1 text-size="md" text-weight="300" margin="none"><a href="/" text-decoration="none">Alex Mingoia</a></h1>
-			</nav>
-			<img src="/images/alex.jpeg" rounded width="32" height="32" alt="Alex Mingoia" />
-		</header>
-    <article>
+	<body max-width="s">
+    <header margin-bottom="xl">
+	<nav><a href="/"><img src="/images/alex-rounded.png" width="64" height="64" rounded alt="Alex Mingoia" /></a></nav>
+</header>
+
+
+<article>
 	<hgroup>
-		<p><small><time> 6 Jul 2023</time></small></p>
+		<p text-transform="uppercase"><small><time> 6 Jul 2023</time></small></p>
 		<h1>Engineering velocity</h1>
 	</hgroup>
 	<p>The quickest way forward is knowing your next step. You can only move as fast as you have answers to “How do we ship?”</p>
@@ -102,18 +87,21 @@ Release checklist
 </ul>
 
 </article>
-<hr margin-bottom="md">
-<footer text-size="sm">
-	<nav><small>⏴</small> <a href="/">Alex Mingoia</a></nav>
-	<p margin-bottom="none">Reach out: <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a><br>𝕏: <a href="https://x.com/alexmingoia">@alexmingoia</a></p>
-	<p id="newsletter-confirmation" text-weight="600" padding="md" style="display: none; border: 1px dashed var(--color-foreground-accent); border-radius: 0.25rem;">
+<footer text-size="s">
+  <hr margin-bottom="s">
+	<nav>
+    <div>Next: <a href="overexamined-life.html">Socrates said the unexamined life isn’t ...</a></div>
+    <div>Previous: <a href="commitments-and-estimates.html">Commitments are more powerful than estimates</a></div>
+  	<p><small>⏴</small> <a href="/">Alex Mingoia</a></p>
+  </nav>
+	<p id="newsletter-confirmation" text-weight="600" padding="s" style="display: none; border: 1px dashed var(--color-foreground-accent); border-radius: 0.25rem;">
 		Please check your email to confirm the subscription.
 	</p>
 	<form id="newsletter-form" action="https://assets.mailerlite.com/jsonp/509676/forms/93599859849824067/subscribe" data-code="" method="post" target="_blank" max-width="xs">
-		<p margin-top="none">Receive blog entries via <a href="/feed.xml">RSS</a> or email:</p>
-		<div distribute text-size="md">
-			<input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" required autocomplete="email" margin-right="sm">
-			<button type="submit" class="primary">Subscribe</button>
+		<p margin-top="none">Comments? Email me <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a><br>Receive new blog entries via <a href="/feed.xml">RSS</a>, <a href="https://x.com/alexmingoia/">𝕏 @alexmingoia</a>, or email:</p>
+		<div distribute text-size="m">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" required autocomplete="email" margin-right="2xs">
+			<div><button type="submit" class="primary">Subscribe</button></div>
 			<input type="hidden" name="anticsrf" value="true">
       <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vc2affd81117220f6978e779b988d5128" type="text/javascript" async></script>
 			<script>
@@ -143,6 +131,7 @@ Release checklist
 		</div>
 	</form>
 </footer>
+
 
 	</body>
 </html>
