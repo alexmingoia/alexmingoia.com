@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<updated>2023-08-09 21:00:34+0630</updated>
+	<updated>2023-08-09 21:02:15+0630</updated>
 	<title>Alex Mingoia</title>
 	<subtitle>Writing, notes, and projects by Alex Mingoia.</subtitle>
 	<link href="https://www.alexmingoia.com/feed.xml" rel="self" />
@@ -76,85 +76,6 @@
 &lt;p&gt;Commitments give us something to live up to. Estimates gives us an excuse.&lt;/p&gt;
 &lt;p&gt;Don&amp;#39;t mistake estimates for safety. Certainty is safety.&lt;/p&gt;
 &lt;p&gt;There’s power in people trusting you to deliver.&lt;/p&gt;
-
-	</content>
-	<author>
-		<name>Alex Mingoia</name>
-	</author>
-</entry>
-<entry>
-	<title>Engineering velocity</title>
-	<link rel="alternate" type="text/html" href="https://www.alexmingoia.com/engineering-velocity"/>
-	<id>https://www.alexmingoia.com/engineering-velocity</id>
-	<updated>2023-07-06</updated>
-	<content type="html">
-    &lt;h1 id=&quot;engineering-velocity&quot;&gt;Engineering velocity&lt;/h1&gt;
-&lt;p&gt;The quickest way forward is knowing your next step. You can only move as fast as you have answers to “How do we ship?”&lt;/p&gt;
-&lt;p&gt;In other words, &lt;em&gt;engineering velocity is knowing the way forward.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Many of the decisions between idea and release can be made once and leveraged repeatedly. Distilled they become standard operating procedures (SOPs).&lt;/p&gt;
-&lt;p&gt;Technical SOPs:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-Linter and code formatter
-&lt;/li&gt;
-&lt;li&gt;
-Branching workflow
-&lt;/li&gt;
-&lt;li&gt;
-Test framework
-&lt;/li&gt;
-&lt;li&gt;
-Expected test coverage
-&lt;/li&gt;
-&lt;li&gt;
-Automated tests
-&lt;/li&gt;
-&lt;li&gt;
-Automated deployment
-&lt;/li&gt;
-&lt;li&gt;
-UI library
-&lt;/li&gt;
-&lt;li&gt;
-data access patterns
-&lt;/li&gt;
-&lt;li&gt;
-API standard
-&lt;/li&gt;
-&lt;li&gt;
-Data migration process
-&lt;/li&gt;
-&lt;li&gt;
-Data handling and PI checklist
-&lt;/li&gt;
-&lt;li&gt;
-Security checklist or linter
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Organizational SOPs:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-Definition of done for new work
-&lt;/li&gt;
-&lt;li&gt;
-Definition of ready for user storiest and tickets
-&lt;/li&gt;
-&lt;li&gt;
-How work is assigned
-&lt;/li&gt;
-&lt;li&gt;
-How progress is reported
-&lt;/li&gt;
-&lt;li&gt;
-How work is accepted
-&lt;/li&gt;
-&lt;li&gt;
-Review checklist
-&lt;/li&gt;
-&lt;li&gt;
-Release checklist
-&lt;/li&gt;
-&lt;/ul&gt;
 
 	</content>
 	<author>
