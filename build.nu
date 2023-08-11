@@ -1,94 +1,84 @@
-let site_title = 'Alex Mingoia'
-let site_url = 'https://www.alexmingoia.com'
+### Alex's nushell static blog generator
+#
+# All markdown files with `published: YYYY-MM-DD` metadata are used as blog entries
+# 
+# $config and $blog_entries fields are available as template {{variables}}
+
+let config = {
+  build_path: 'build',
+  markdown_path: '/Users/alex/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/blog',
+  assets_path: 'assets',
+  templates_path: 'templates',
+  blog_title: 'Alex Mingoia',
+  blog_description: 'Writing, notes, and projects by Alex Mingoia.',
+  blog_icon: 'https://www.alexmingoia.com/images/alex.jpeg',
+  blog_author: 'Alex Mingoia',
+  blog_www_url: 'https://www.alexmingoia.com/',
+  blog_xml_url: 'https://www.alexmingoia.com/feed.xml',
+}
 
 alias markdown = mmark
 
-# prepare directory for build
-rm -rf build/
-mkdir build
+# Prepare directory for build
+rm -rf $config.build_path
+mkdir $config.build_path
 
-# copy images
-cp -r images build/images
+# Copy assets to build folder
+glob $'($config.assets_path)/*' | each { |it| cp $it $'($config.build_path)/($it | path basename)' }
 
-# compile pages table
-let pages = (
-  glob pages/*.md
-    | wrap filename
-    | insert url { |it| $it.filename | path basename | str replace ".md" "" }
-    | insert md { |it| open $it.filename }
-    | insert metadata { |it| $it.md | extract_metadata }
-)
-
-# compile blog entries table
+# Compile blog entries (table fields are available as template {{variables}})
 let blog_entries = (
-  glob blog/*.md
+  glob $'($config.markdown_path)/**/*.md'
     | wrap filename
-    | insert url { |it| $it.filename | path basename | str replace ".md" "" }
     | insert md { |it| open $it.filename }
-    | insert metadata { |it| $it.md | extract_metadata }
-    | insert content { |it| $it.md | split row "---\n\n" | last | str replace "# .+\n+" '' }
+    | insert published { |it| try { $it.md | parse -r 'published: (\d{4}-\d\d-\d\d(T\d\d:\d\d)?)' | values | flatten | first | date format %+ } catch { "" } }
+    | insert updated { |it| $it.md | try { parse -r 'updated: (\d{4}-\d\d-\d\d(T\d\d:\d\d)?)' | values | flatten | first | date format %+ } catch { $it.published } }
+    | where { |it| not ($it.published | is-empty) }
+    | insert published_fmt { |it| $it.published | date format "%e %b %Y" }
+    | insert updated_fmt { |it| $it.updated | date format "%e %b %Y" }
     | insert kind { |it| if ($it.md | parse -r '# (.+)\n' | values | flatten | length) > 0 { "article" } else { "note" } }
-    | insert date { |it| $it.metadata.date }
-    | insert tags { |it| try { $it.metadata.tags | split row -r ', ?' } catch { [] } }
-    | sort-by date
+    | insert url { |it| $it.filename | path basename | str replace ".md" "" | str kebab-case }
+    | insert permalink { |it| $'($config.blog_www_url)($it.url)' }
+    | insert summary { |it| $it.md | split row "---\n\n" | last | str replace '# .+\n+' '' | lines | first | truncate 24 | escape-html }
+    | insert title { |it| try { $it.md | parse -r '# (.+)\n' | values | flatten | first } catch { $it.summary | truncate 6 } }
+    | insert html { |it| $it.md | split row "---\n\n" | last | str replace "# .+\n+" '' | markdown }
+    | each { |it| $it | merge $config }
+    | sort-by published
     | enumerate
     | each { |it| $it.item | insert index $it.index }
 )
 
-# write pages
-$pages | each { |it| $it.md | str replace '# (.+)' '' | markdown | render 'page.html' $it.metadata | render 'layout.html' {title: $'($it.metadata.title) | ($site_title)'} | save $'build/($it.url).html' }
-
-# write blog entries
+# Write blog entry.(article|note).html pages ({{next}} and {{prev}} template variables are HTML links or empty strings)
 $blog_entries
-  | insert prev { |it| try { ['Previous: ', '<a href="', ($blog_entries | get ($it.index - 1) | get url), '.html">', ($blog_entries | get ($it.index - 1) | get metadata | get title), '</a>'] | str join "" } catch { "" } }
-  | insert next { |it| try { ['Next: ', '<a href="', ($blog_entries | get ($it.index + 1) | get url), '.html">', ($blog_entries | get ($it.index + 1) | get metadata | get title), '</a>'] | str join "" } catch { "" } }
-  | each { |it| $it.content | markdown | render $'entry.($it.kind).html' ($it.metadata | upsert date { |metadata| $metadata.date | date format "%e %b %Y" } | insert next $it.next | insert prev $it.prev) | render 'layout.html' {title: $'($it.metadata.title) ($site_title)'} | save $'build/($it.url).html' }
+  | insert prev { |it| try { ['Previous: ', '<a href="', ($blog_entries | get ($it.index - 1) | get url), '.html">', ($blog_entries | get ($it.index - 1) | get title), '</a>'] | str join "" } catch { "" } }
+  | insert next { |it| try { ['Next: ', '<a href="', ($blog_entries | get ($it.index + 1) | get url), '.html">', ($blog_entries | get ($it.index + 1) | get title), '</a>'] | str join "" } catch { "" } }
+  | each { |it| $it.html | render $'entry.($it.kind).html' $it | render 'layout.html' ({page_title: $'($it.title) | ($config.blog_title)', page_description: $it.summary} | merge $it) | save $'($config.build_path)/($it.url).html' }
 
-# concatenate entries and write index page
-let blog_entries_list_html = (
-  $blog_entries
-    | reverse
-    | where { |it| try { $it.metadata.index != "false" } catch { true } }
-    | each { |it| $it.content | markdown | render $'index.($it.kind).html' ($it.metadata | upsert url $'/($it.url)' | upsert date { |metadata| $metadata.date | date format "%e %b %Y" }) }
-    | str join ""
-)
+# Write index.html page with concatenated blog entries
+$blog_entries
+  | reverse
+  | each { |it| $it.html | render $'entry.($it.kind).html' $it }
+  | str join ""
+  | render 'index.html' $config
+  | render 'layout.html' ($config | merge {page_title: $config.blog_title, page_description: $config.blog_description})
+  | save $'($config.build_path)/index.html'
 
-$blog_entries_list_html
-  | render 'index.html' {}
-  | render 'layout.html' {title: $site_title}
-  | save 'build/index.html'
+$blog_entries
+  | each { |it| $it.html | escape-html | render 'entry.xml' $it }
+  | str join ""
+  | render 'index.xml' ($config | insert updated (try { $blog_entries | last | get updated } catch { date now | date format %+ }))
+  | save $'($config.build_path)/feed.xml'
 
-# write RSS/Atom feed to build/feed.xml
-let index_entries_atom = (
-  $blog_entries
-    | where { |it| try { $it.metadata.index != "false" } catch { true } }
-    | each { |it| $it.md | markdown | escape-html | render 'entry.xml' ($it.metadata | upsert updated $it.metadata.date | upsert permalink $'($site_url)/($it.url)') }
-    | str join ""
-)
-$index_entries_atom | render 'index.xml' {updated: (date now | date format "%Y-%m-%d %H:%M:%S%z")} | save 'build/feed.xml'
-
-# return record of markdown metadata
-def extract_metadata [] {
-  let md = $in
-  let content = ($md | split row "---\n")
-  let h1 = ($md | parse -r '# (.+)\n' | values | flatten)
-  let title = (if ($h1 | length) > 0 { $h1 | first | escape-html } else { $md | split row "---\n\n" | last | lines | first | truncate | escape-html })
-  if ($content | length) > 1 {
-    let metadata = ($content | drop nth 0 | first | lines | each { |it| $it | split column ': ' } | flatten | transpose -r | into record)
-    $metadata | upsert title $title
-  } else {
-    {title: $title}
-  }
-}
-
-# render HTML template, replacing {{var}} with vars record value
+# Render HTML template, replacing {{content}} with pipe contents and {{key}} with associated record value
+#
+# Also supports non-recursive {{> includes.html}}
 def render [partial, vars] {
   let content = $in
-  let tpl = (open $'templates/($partial)' --raw | decode utf-8 | str replace '{{content}}' $content)
+  let tpl = (open $'($config.templates_path)/($partial)' --raw | decode utf-8 | str replace '{{content}}' $content)
   let tpl_includes = ($tpl | parse --regex '{{> ([\w.]+)}}').capture0
-  let tpl_expanded = ($tpl_includes | reduce -f $tpl { |it, acc| $acc | str replace $"{{> ($it)}}" (open $'templates/($it)') })
+  let tpl_expanded = ($tpl_includes | reduce -f $tpl { |it, acc| $acc | str replace $"{{> ($it)}}" (open $'($config.templates_path)/($it)') })
   let tpl_vars = ($tpl_expanded | parse --regex '{{(\w+)}}').capture0
-  $tpl_vars | reduce -f $tpl_expanded { |it, acc| try { $acc | str replace $"{{($it)}}" ($vars | get $it) } catch { $acc | str replace '${{($it)}}' '' } } 
+  $tpl_vars | reduce -f $tpl_expanded { |it, acc| try { $acc | str replace $"{{($it)}}" ($vars | get $it) } catch { $acc | str replace $'{{($it)}}' '' } } 
 }
 
 # HTML content must be escaped in Atom+XML
@@ -96,6 +86,6 @@ def escape-html [] {
   str replace --all '&' '&amp;' | str replace --all '<' '&lt;' | str replace --all '>' '&gt;' | str replace --all '"' '&quot;' | str replace --all "'" '&#39;'
 }
 
-def truncate [] {
-  str trim | split row " " | take 6 | append "..." | str join " "
+def truncate [len] {
+  str trim | split row " " | take $len | append "..." | str join " "
 }

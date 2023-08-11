@@ -2,11 +2,12 @@
 	<title>{{title}}</title>
 	<link rel="alternate" type="text/html" href="{{permalink}}"/>
 	<id>{{permalink}}</id>
+	<published>{{published}}</published>
 	<updated>{{updated}}</updated>
 	<content type="html">
     {{content}}
 	</content>
 	<author>
-		<name>Alex Mingoia</name>
+		<name>{{blog_author}}</name>
 	</author>
 </entry>
