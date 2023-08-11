@@ -1,7 +1,7 @@
-<article>
+<article margin-vertical="xl">
 	<hgroup>
-		<p text-transform="uppercase"><small><time>{{published_fmt}}</time></small></p>
-		<h1>{{title}}</h1>
+		<small text-transform="uppercase"><time>{{published_fmt}}</time></small>
+		<h1><a href="{{permalink}}" text-decoration="none">{{title}}</a></h1>
 	</hgroup>
 	{{content}}
 </article>
