@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" charset="UTF-8">
+	<head>
+		<title>Alex Mingoia</title>
+    <meta name="author" content="Alex Mingoia"/>
+    <style>
+      :root {
+        --bg-color: white; 
+        --body-color: oklch(14.7% 0.004 49.25);
+        --link-color: oklch(68.5% 0.169 237.323);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-color: oklch(12.9% 0.042 264.695);
+          --body-color: oklch(98.4% 0.003 247.858);
+          --link-color: oklch(86.5% 0.127 207.078);
+        }
+      }
+
+      html, body {
+        background: var(--bg-color);
+        color: var(--body-color);
+        font-family: monospace, sans-serif;
+        font-weight: 300;
+        padding: 3vh;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--link-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Alex Mingoia</h1>
+    <p>
+      <a href="mailto:alex@alexmingoia.com">alex@alexmingoia.com</a><br/>
+      San Francisco, California, USA
+    </p>
+  </body>
+</html>
